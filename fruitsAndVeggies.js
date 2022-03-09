@@ -1002,34 +1002,18 @@ const personalDetails = [{ "id": 1, "first_name": "Jayme", "last_name": "Gudgin"
 let html = "";
 const listHolder = document.getElementById("listHolder");
 
-fruitList.forEach(function (value, i) {
+personalDetails.forEach(function (value, i) {
    html +=
-      // `<div class="px-4 pb-4 border-solid border-2 border-neutral-400">
-      // <h2 class="text-3xl mb-2">${fruitList[i].name}</h2>
-      // <p><strong>Order:</strong> ${fruitList[i].order}</p>
-      // <p><strong>Family:</strong> ${fruitList[i].family}</p>
-      // <p><strong>Genus:</strong> ${fruitList[i].genus}</p>
-      // <h3 class="text-xl mb-2">Nutritional Information</h3>
+      `<div class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
+         <img src="${personalDetails[i].avatar}" />
+         <div class="flex flex-col">
+            <h2>${personalDetails[i].first_name} ${personalDetails[i].last_name}</h2>
 
-      // <p><strong>Calories:</strong> ${fruitList[i].nutritions.calories}</p>
-      // <p><strong>Carbohydrates:</strong> ${fruitList[i].nutritions.carbohydrates}</p>
-      // <p><strong>Fat:</strong> ${fruitList[i].nutritions.fat}</p>
-      // <p><strong>Protein:</strong> ${fruitList[i].nutritions.protein}</p>
-      // <p><strong>Sugar:</strong> ${fruitList[i].nutritions.sugar}</p>
-      // </div>`;
-      `<div class="p-4 border-solid border-2 border-neutral-400">
-         <h2 class="text-3xl">${fruitList[i].name}</h2>
-
-         <span><strong>Order:</strong> ${fruitList[i].order}</span>
-         <span><strong>Family:</strong> ${fruitList[i].family}</span>
-         <span><strong>Genus:</strong> ${fruitList[i].genus}</span>
-
-         <h3 class="text-xl">Nutritional Information</h3>
-         <span><strong>Calories:</strong> ${fruitList[i].nutritions.calories}</span>
-         <span><strong>Carbohydrates:</strong> ${fruitList[i].nutritions.carbohydrates}</span>
-         <span><strong>Fat:</strong> ${fruitList[i].nutritions.fat}g</span>
-         <span><strong>Protein:</strong> ${fruitList[i].nutritions.protein}g</span>
-         <span><strong>Sugar:</strong> ${fruitList[i].nutritions.sugar}g</span>
+            <span><strong>ID:</strong> ${personalDetails[i].id}</span>
+            <span><strong>Email:</strong><a href="mailto: ${personalDetails[i].email}">${personalDetails[i].email}</a></span>
+            <span><strong>Gender:</strong> ${personalDetails[i].gender}</span>
+            <span><strong>IP address:</strong> ${personalDetails[i].ip_address}</span>
+         </div>
       </div>`;
 });
 
