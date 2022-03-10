@@ -26,7 +26,7 @@ function myFunction(personalDetails) {
 
             ${personalDetails[i].btc ? `
             <h3 class="text-2xl">Crypto</h3>
-            <h4>BTC Address:</h4>
+            <h4 class="text-xl">BTC Address:</h4>
                <a class="text-blue-500" href="https://www.blockchain.com/btc/address/${personalDetails[i].btc}" target="_blank">
                   ${personalDetails[i].btc}
                </a>` : ''}
