@@ -14,31 +14,44 @@ function myFunction(personalDetails) {
    var out = "";
    var i;
    for (i = 0; i < personalDetails.length; i++) {
-      out += `<div class="">
+      out += `<div id="${personalDetails[i].id}" class="border p-4">
          <img src="${personalDetails[i].avatar}" />
          <div class="flex flex-col">
-            <h2 class="text-3xl">${personalDetails[i].first_name} ${personalDetails[i].last_name}</h2>
-            <span><strong>ID:</strong> 33${personalDetails[i].id}78</span>
+            <span>
+               <h2 class="text-3xl">
+                  ${personalDetails[i].first_name} ${personalDetails[i].last_name}
+                  <span class="text-lg"><strong>ID:</strong> 33${personalDetails[i].id}78</span>
+               </h2>
+               ${personalDetails[i].paragraph ? `<p>“${personalDetails[i].paragraph}”</p>` : ''}
 
-            <h3 class="text-2xl">Address:</h3>
-            <span>${personalDetails[i].address}</span>
-            <span>${personalDetails[i].city}, ${personalDetails[i].province ? `${personalDetails[i].province},` : ''} ${personalDetails[i].countryCode}</span>
+            </span>
 
-            ${personalDetails[i].btc ? `
-            <h3 class="text-2xl">Crypto</h3>
-            <h4 class="text-xl">BTC Address:</h4>
-               <a class="text-blue-500" href="https://www.blockchain.com/btc/address/${personalDetails[i].btc}" target="_blank">
-                  ${personalDetails[i].btc}
-               </a>` : ''}
+            <span>
+               <h3 class="text-2xl">Address:</h3>
+               <p>${personalDetails[i].address}</p>
+               <p>${personalDetails[i].city}, ${personalDetails[i].province ? `${personalDetails[i].province},` : ''} ${personalDetails[i].countryCode}</p>
+            </span>
 
-            <h3 class="text-2xl">Last Known Location</h3>
-            <span><a class="text-blue-500" href="https://www.google.com/maps/place/${personalDetails[i].latitude},%20${personalDetails[i].longitude}" target="_blank">${personalDetails[i].latitude}, ${personalDetails[i].longitude}</a></span>
+            <span>
+               ${personalDetails[i].btc ? `<h3 class="text-2xl">Crypto</h3>` : ''}
 
-            <span><strong>Gender:</strong> ${personalDetails[i].gender} <strong>Race:</strong> ${personalDetails[i].race}</span>
-            ${personalDetails[i].paragraph ? `<span><strong>Quote:</strong> ${personalDetails[i].paragraph}</span>` : ''}
-            <h3 class="text-2xl">Company Info</h3>
-            <h4 class="text-xl">${personalDetails[i].companyName}</h4>
-            <span>${personalDetails[i].slogan}</span>
+               ${personalDetails[i].btc ? `<h4 class="text-xl">BTC Address:</h4>
+               <a class="text-blue-500" href="https://www.blockchain.com/btc/address/${personalDetails[i].btc}" target="_blank">${personalDetails[i].btc}</a>` : ''}
+            </span>
+            <span>
+               <h3 class="text-2xl">Last Known Location</h3>
+               <a class="text-blue-500" href="https://www.google.com/maps/place/${personalDetails[i].latitude},%20${personalDetails[i].longitude}" target="_blank">${personalDetails[i].latitude}, ${personalDetails[i].longitude}</a>
+            </span>
+
+            <span>
+               <strong>Gender:</strong> ${personalDetails[i].gender} <strong>Race:</strong> ${personalDetails[i].race}
+            </span>
+
+            <span>
+               <h3 class="text-2xl">Company Info</h3>
+               <h4 class="text-xl">${personalDetails[i].companyName}</h4>
+               ${personalDetails[i].slogan}
+            </span>
          </div>
       </div>`;
    }
