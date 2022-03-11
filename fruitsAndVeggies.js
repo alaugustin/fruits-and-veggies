@@ -105,7 +105,7 @@ function myFunction(personalDetails) {
                <h4 class="text-xl mb-2">${personalDetails[i].companyName}</h4>
                <p>${personalDetails[i].address}</p>
                <p>${personalDetails[i].city}, ${personalDetails[i].province ? `${personalDetails[i].province},` : ''} ${personalDetails[i].countryCode}</p>
-               <p class="italic">${personalDetails[i].slogan.charAt(0).toUpperCase() + personalDetails[i].slogan.slice(1) }</p>
+               <p class="italic">${personalDetails[i].slogan.charAt(0).toUpperCase() + personalDetails[i].slogan.slice(1)}</p>
             </div>
 
             <div class="mb-4">
