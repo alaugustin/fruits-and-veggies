@@ -75,24 +75,27 @@ function myFunction(personalDetails) {
    let out = "";
    let i;
    for (i = 0; i < personalDetails.length; i++) {
-      out += `<article id="${personalDetails[i].id}" class="border p-4">
+      out += `<article id="${personalDetails[i].id}" class="border border-gray-400 rounded-lg p-4">
          <img class="mb-1"src="${personalDetails[i].avatar}" />
          <div class="flex flex-col">
             <div class="mb-4">
-               <h2 class="text-3xl mb-4">
-                  <strong>ID:</strong> 33${personalDetails[i].id}78
+               <h2 class="text-3xl mb-1">
+                  <strong>ID:</strong> ${personalDetails[i].ein}
                </h2>
+               <h3 class="text-2xl mb-2"><strong>Firmware Version: </strong>${personalDetails[i].version}</h3>
 
-               <h3 class="text-2xl mb-2">Registered to</h3>
-               <p>${personalDetails[i].first_name} ${personalDetails[i].last_name}</p>
-               ${personalDetails[i].paragraph ? `<p>“${personalDetails[i].paragraph}”</p>` : ''}
+               <div class="flex"></div>
+
+               <p><strong>Registered to:</strong> ${personalDetails[i].first_name} ${personalDetails[i].last_name}</p>
                <p><strong>Gender:</strong> ${personalDetails[i].gender}</p>
                <p><strong>Race:</strong> ${personalDetails[i].race}</p>
+               ${personalDetails[i].paragraph ? `<p>“${personalDetails[i].paragraph}”</p>` : ''}
             </div>
 
             <div class="mb-4">
                <h3 class="text-2xl mb-2">Last Known Location</h3>
                <a class="text-blue-500" href="https://www.google.com/maps/place/${personalDetails[i].latitude},%20${personalDetails[i].longitude}" target="_blank">${personalDetails[i].latitude}, ${personalDetails[i].longitude}</a>
+               <p>${personalDetails[i].date} ${personalDetails[i].time}</p>
             </div>
 
             <div class="mb-4">
@@ -104,10 +107,13 @@ function myFunction(personalDetails) {
             </div>
 
             <div class="mb-4">
-               ${personalDetails[i].btc ? `<h3 class="text-2xl mb-2">Crypto</h3>` : ''}
+               ${personalDetails[i].btc || personalDetails[i].eth ? `<h3 class="text-2xl mb-2">Blockchain</h3>` : ''}
 
                ${personalDetails[i].btc ? `<h4 class="text-xl mb-2">BTC Address:</h4>
                <a class="text-blue-500" href="https://www.blockchain.com/btc/address/${personalDetails[i].btc}" target="_blank">${personalDetails[i].btc}</a>` : ''}
+
+               ${personalDetails[i].eth ? `<h4 class="text-xl mb-2">ETC Address:</h4>
+               <a class="text-blue-500" href="https://etherscan.io/address/${personalDetails[i].eth}" target="_blank">${personalDetails[i].eth}</a>` : ''}
             </div>
          </div>
       </article>`;
