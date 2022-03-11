@@ -1,12 +1,21 @@
-var xmlhttp = new XMLHttpRequest();
+var xmlhttp;
+if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+   xmlhttp = new XMLHttpRequest();
+}
+else {// code for IE6, IE5
+   xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
 var url = "https://api.mockaroo.com/api/0890d280?count=1000&key=c9a71de0";
 
 xmlhttp.onreadystatechange = function () {
    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("loading").innerHTML = '';
       var myArr = JSON.parse(this.responseText);
       myFunction(myArr);
    }
 };
+
+document.getElementById("loading").innerHTML = 'The DB is Loading…';
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
