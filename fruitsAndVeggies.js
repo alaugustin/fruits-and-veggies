@@ -1,16 +1,18 @@
-var xmlhttp;
+let xmlhttp;
+let url = "https://api.mockaroo.com/api/0890d280?count=1000&key=c9a71de0";
+
 if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
    xmlhttp = new XMLHttpRequest();
 }
 else {// code for IE6, IE5
    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 }
-var url = "https://api.mockaroo.com/api/0890d280?count=1000&key=c9a71de0";
+
 
 xmlhttp.onreadystatechange = function () {
    if (this.readyState == 4 && this.status == 200) {
       document.getElementById("loading").innerHTML = '';
-      var myArr = JSON.parse(this.responseText);
+      let myArr = JSON.parse(this.responseText);
       myFunction(myArr);
    }
 };
@@ -20,8 +22,8 @@ xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
 function myFunction(personalDetails) {
-   var out = "";
-   var i;
+   let out = "";
+   let i;
    for (i = 0; i < personalDetails.length; i++) {
       out += `<article id="${personalDetails[i].id}" class="border p-4">
          <img class="mb-1"src="${personalDetails[i].avatar}" />
