@@ -84,11 +84,13 @@ function myFunction(personalDetails) {
                </h2>
                <h3 class="text-2xl mb-2"><strong>Firmware Version: </strong>${personalDetails[i].version}</h3>
 
-               <div class="flex"></div>
+               <div class="flex">
+                  <p><strong>Registered to:</strong> ${personalDetails[i].first_name} ${personalDetails[i].last_name}</p>
+                  <img src="${personalDetails[i].regUserImg}" />
+                  <p><strong>Gender:</strong> ${personalDetails[i].gender}</p>
+                  <p><strong>Race:</strong> ${personalDetails[i].race}</p>
+               </div>
 
-               <p><strong>Registered to:</strong> ${personalDetails[i].first_name} ${personalDetails[i].last_name}</p>
-               <p><strong>Gender:</strong> ${personalDetails[i].gender}</p>
-               <p><strong>Race:</strong> ${personalDetails[i].race}</p>
                ${personalDetails[i].paragraph ? `<p>“${personalDetails[i].paragraph}”</p>` : ''}
             </div>
 
