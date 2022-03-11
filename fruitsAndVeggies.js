@@ -84,14 +84,13 @@ function myFunction(personalDetails) {
                </h2>
                <h3 class="text-2xl mb-2"><strong>Firmware Version: </strong>${personalDetails[i].version}</h3>
 
-               <div class="flex">
-                  <p><strong>Registered to:</strong> ${personalDetails[i].first_name} ${personalDetails[i].last_name}</p>
-                  <img src="${personalDetails[i].regUserImg}" />
-                  <p><strong>Gender:</strong> ${personalDetails[i].gender}</p>
-                  <p><strong>Race:</strong> ${personalDetails[i].race}</p>
+               <div class="flex mb-2">
+                  <p class="flex flex-col basis-1/3"><strong>Registered to:</strong> ${personalDetails[i].first_name} ${personalDetails[i].last_name}</p>
+                  <p class="flex flex-col basis-1/3"><strong>Gender:</strong> ${personalDetails[i].gender}</p>
+                  <p class="flex flex-col basis-1/3"><strong>Race:</strong> ${personalDetails[i].race}</p>
                </div>
 
-               ${personalDetails[i].paragraph ? `<p>“${personalDetails[i].paragraph}”</p>` : ''}
+               ${personalDetails[i].paragraph ? `<p class="border p-2"><span class="text-6xl float-left pr-2">“</span>${personalDetails[i].paragraph}”</p>` : ''}
             </div>
 
             <div class="mb-4">
@@ -112,10 +111,10 @@ function myFunction(personalDetails) {
                ${personalDetails[i].btc || personalDetails[i].eth ? `<h3 class="text-2xl mb-2">Blockchain</h3>` : ''}
 
                ${personalDetails[i].btc ? `<h4 class="text-xl mb-2">BTC Address:</h4>
-               <a class="text-blue-500" href="https://www.blockchain.com/btc/address/${personalDetails[i].btc}" target="_blank">${personalDetails[i].btc}</a>` : ''}
+               <a class="text-blue-500 break-all" href="https://www.blockchain.com/btc/address/${personalDetails[i].btc}" target="_blank">${personalDetails[i].btc}</a>` : ''}
 
                ${personalDetails[i].eth ? `<h4 class="text-xl mb-2">ETC Address:</h4>
-               <a class="text-blue-500" href="https://etherscan.io/address/${personalDetails[i].eth}" target="_blank">${personalDetails[i].eth}</a>` : ''}
+               <a class="text-blue-500 break-all" href="https://etherscan.io/address/${personalDetails[i].eth}" target="_blank">${personalDetails[i].eth}</a>` : ''}
             </div>
          </div>
       </article>`;
