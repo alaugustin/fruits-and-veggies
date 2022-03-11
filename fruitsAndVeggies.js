@@ -8,16 +8,66 @@ else {// code for IE6, IE5
    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
+const requestScreen = () => {
+   return `
+      <h2 class="text-3xl mb-4">Request not initialized…</h2>
+   `
+}
+
+const serverConnectScreen = () => {
+   return `
+      <h2 class="text-3xl mb-4">Server connection established…</h2>
+   `
+}
+
+const requestReceivedScreen = () => {
+   return `
+      <h2 class="text-3xl mb-4">Request received…</h2>
+   `
+}
+
+const processingScreen = () => {
+   return `
+      <h2 class="text-3xl mb-4">Processing request…</h2>
+   `
+}
+
+const loadScreen = () => {
+   return `
+      <h2 class="text-3xl mb-4">The DB is Loading…</h2>
+   `
+}
+
+const serverErrorScreen = () => {
+   return `
+      <h2 class="text-3xl mb-4">500 Internal Server Error…</h2>
+   `
+}
 
 xmlhttp.onreadystatechange = function () {
+   if (this.readyState == 0 && this.status == 200) {
+      document.getElementById("loading").innerHTML = requestScreen();
+   }
+   if (this.readyState == 1 && this.status == 200) {
+      document.getElementById("loading").innerHTML = serverConnectScreen();
+   }
+   if (this.readyState == 2 && this.status == 200) {
+      document.getElementById("loading").innerHTML = requestReceivedScreen();
+   }
+   if (this.readyState == 3 && this.status == 200) {
+      document.getElementById("loading").innerHTML = processingScreen();
+   }
    if (this.readyState == 4 && this.status == 200) {
       document.getElementById("loading").innerHTML = '';
       let myArr = JSON.parse(this.responseText);
       myFunction(myArr);
    }
+   if (this.readyState == 4 && this.status == 500) {
+      document.getElementById("loading").innerHTML = serverErrorScreen();
+   }
 };
 
-document.getElementById("loading").innerHTML = 'The DB is Loading…';
+document.getElementById("loading").innerHTML = loadScreen();
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
